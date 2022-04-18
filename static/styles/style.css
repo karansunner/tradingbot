@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+    --main-color: #112d4e;
+    --second-color: #dbe2ef;
+    --white: #fff;
+    --light-gray: #f9f7f7;
+    --blue-dark: #3f72af;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+.head {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 14vh;
+    background: var(--main-color);
+    z-index: 1;
+}
+
+.head::after,
+.head::before {
+    content: "";
+    background: var(--white);
+    position: absolute;
+    bottom: -50px;
+    height: 100px;
+    width: 100%;
+    z-index: -1;
+}
+
+.head::before {
+    left: 0;
+    clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
+}
+
+.head::after {
+    right: 0;
+    clip-path: polygon(100% 0%, 100% 0, 100% 100%, 0 100%);
+}
+
+.head h2 {
+    z-index: 1;
+    color: var(--white);
+    word-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.saldo {
+    margin: 8em 0 0 0;
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+}
+
+.saldo p {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--blue-dark);
+    padding: 6px 20px;
+    border-radius: 4px;
+}
+
+.saldo a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding: 7.5px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: var(--main-color);
+    border-radius: 4px;
+    color: var(--white);
+    transition: all 0.4s ease-in-out;
+    border: 2px solid var(--main-color);
+}
+
+.table-con {
+    margin: 100px auto 0 auto;
+    width: 60%;
+    overflow: hidden;
+}
+
+.table-con table {
+    border-collapse: collapse;
+    box-shadow: 0px 0px 50px var(--second-color);
+    text-align: left;
+    width: 100%;
+}
+
+.table-con table th {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.table-con table td {
+    padding: 1rem 2rem;
+}
+
+.table-con table tr:nth-child(even) {
+    background-color: var(--second-color);
+}
+
+table tr:first-child th:first-child {
+    border-top-left-radius: 4px;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 4px;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 4px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+.saldo a:hover {
+    background-color: var(--white);
+    color: var(--main-color);
+}
+
+.table-con tr.no-before::before {
+    width: 0;
+}
+
+.table-con tr {
+    position: relative;
+    overflow: hidden;
+}
+
+.table-con tr::before,
+.table-con tr::after {
+    content: "";
+    background-color: var(--blue-dark);
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.table-con tr::before {
+    width: 0px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.table-con tr::after {
+    width: 20px;
+    height: 20px;
+    top: 27%;
+    left: -10px;
+    clip-path: polygon(0 0, 0% 100%, 35% 52%);
+}
+
+.table-con tr:hover::before {
+    width: 4px;
+}
+
+.table-con tr:hover::after {
+    left: 2px;
+}

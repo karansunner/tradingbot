@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Bot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+    <header class="head">
+        <h2>BTC Trading Bot</h2>
+    </header>
+    <main>
+        <div class="saldo">
+            <p class="eur">
+                <span class="material-icons"> account_balance_wallet </span>Saldo:
+                <span>{{euro}}</span>
+            </p>
+            <p class="bit">
+                <span class="material-icons"> currency_bitcoin </span>
+                BTC:
+                <span>{{btc}}</span>
+            </p>
+            <p class="bit">
+                <span class="material-icons"> euro_symbol </span>
+                W/L:
+                <span>{{winLoss}}</span>
+            </p>
+            <p class="bit">
+                <span class="material-icons"> euro_symbol </span>
+                Avg W/L:
+                <span>{{avgWinLoss}}</span>
+            </p>
+            <p>
+                <span class="material-icons"> numbers </span>
+                Bought:
+                <span>{{aantal_gekocht}}</span>
+            </p>
+            <p>
+                <span class="material-icons"> numbers </span>
+                Sold:
+                <span>{{aantal_verkocht}}</span>
+            </p>
+            <p>
+                <span class="material-icons"> numbers </span>
+                Short:
+                <span>{{aantal_shorts}}</span>
+            </p>
+
+
+            <a href="{{url_for('candlestick')}}" target="_blank"><span class="material-icons"> equalizer </span>Grafiek
+                Openen</a>
+        </div>
+    </main>
+    <div class="table-con">
+        <table class="table">
+            <thead>
+                <tr class="no-before">
+                    <th scope="col">Datum/tijd</th>
+                    <th scope="col">Soort</th>
+                    <th scope="col">Prijs</th>
+                    <th scope="col">Bitcoin</th>
+                    <th scope="col">Patroon</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in data %}
+                <tr>
+                    <td>{{x[1]}}</td>
+                    <td>{{x[2]}}</td>
+                    <td>{{x[3]}}</td>
+                    <td>{{x[4]}}</td>
+                    <td>{{x[5]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
